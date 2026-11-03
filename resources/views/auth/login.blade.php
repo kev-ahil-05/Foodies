@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4 p-4 text-sm text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg shadow-sm" :status="session('status')" />
     
     <!-- Title Header -->
-    <h4 class="text-2xl font-bold text-center text-gray-900 mb-6">Foodies Login</h4>
+    <h4 class="text-2xl font-bold text-center text-gray-900 mb-6">Foodies login</h4>
     
     <form method="POST" action="{{ route('login') }}">
         @csrf
