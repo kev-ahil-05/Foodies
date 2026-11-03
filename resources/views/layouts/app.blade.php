@@ -5,31 +5,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('', '') }}</title>
+        <title>{{ config('app.name', 'Foodies') }}</title>
 
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+        <!-- Vite Assets -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-vh-100 bg-light">
+    <body class="font-sans antialiased text-gray-900 bg-gray-100">
+        <!-- Pinalitan ang min-vh-100 bg-light -> min-h-screen bg-gray-50 -->
+        <div class="min-h-screen bg-gray-50">
             @include('layouts.navigation')
 
+            <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow-sm">
-                    <div class="container py-4">
+                <!-- Pinalitan ang shadow-sm -> shadow-md o shadow -->
+                <header class="bg-white shadow">
+                    <!-- Pinalitan ang container py-4 -> max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 -->
+                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
             @endisset
 
-            <main class="container py-4">
+            <!-- Page Content -->
+            <!-- Pinalitan ang container py-4 -> max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 -->
+            <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $slot }}
             </main>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <!-- Tinanggal ang Bootstrap JS script at inayos ang dobleng pagsasara ng body tag -->
     </body>
 </html>
